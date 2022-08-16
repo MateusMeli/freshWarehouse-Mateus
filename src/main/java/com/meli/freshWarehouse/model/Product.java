@@ -54,6 +54,10 @@ public class Product {
     @JsonIgnore
     private Set<ShoppingCartProduct> shoppingCartProducts;
 
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    private Set<Wishlist> wishlists;
+
     public Product(String name, Double price, Long sellerId, Set<Long> sections) {
     }
 }

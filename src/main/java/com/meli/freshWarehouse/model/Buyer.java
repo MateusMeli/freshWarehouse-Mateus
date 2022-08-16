@@ -32,4 +32,8 @@ public class Buyer {
     @OneToMany(mappedBy = "buyer")
     @JsonIgnore
     private Set<PurchaseOrder> purchaseOrders;
+
+
+    @OneToOne(mappedBy = "buyer")
+    private Wishlist wishlist;
 }
