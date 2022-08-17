@@ -54,7 +54,7 @@ public class Product {
     @JsonIgnore
     private Set<ShoppingCartProduct> shoppingCartProducts;
 
-    @OneToMany(mappedBy = "product")
+    @ManyToMany(mappedBy = "products")
     @JsonIgnore
     private Set<Wishlist> wishlists;
 

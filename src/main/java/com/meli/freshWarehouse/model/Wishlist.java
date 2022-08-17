@@ -1,9 +1,11 @@
 package com.meli.freshWarehouse.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Getter @Setter
@@ -24,7 +26,11 @@ public class Wishlist {
     @JoinColumn(name = "buyer_id", referencedColumnName = "id")
     private Buyer buyer;
 
-    @ManyToOne
-    @JoinColumn(name = "id_product", nullable = false)
-    private Product product;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "wishlist_product",
+            joinColumns = @JoinColumn(name = "id_wishlist", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "id_product", referencedColumnName = "id")
+    )
+    Set<Product> products;
 }

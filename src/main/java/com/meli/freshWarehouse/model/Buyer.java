@@ -35,5 +35,6 @@ public class Buyer {
 
 
     @OneToOne(mappedBy = "buyer")
+    @JsonIgnore
     private Wishlist wishlist;
 }
