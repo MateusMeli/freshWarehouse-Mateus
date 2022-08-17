@@ -291,4 +291,26 @@ public class GenerateProduct {
 
         return productList;
     }
+
+    public static final Set<Product> validProductSet() {
+
+        Set<Product> productList = new HashSet<>();
+        productList.add(Product.builder()
+                .id(1L)
+                .name("Toddy")
+                .price(10.0)
+                .seller(GenerateSeller.validSeller1())
+                .sections(GenerateSection.validSectionList())
+                .build());
+
+        productList.add(Product.builder()
+                .id(2L)
+                .name("Leite")
+                .price(15.0)
+                .seller(GenerateSeller.validSeller1())
+                .sections(GenerateSection.validSectionList())
+                .build());
+
+        return productList;
+    }
 }
